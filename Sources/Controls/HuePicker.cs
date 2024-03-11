@@ -12,7 +12,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
-
 using AForge.Imaging;
 
 namespace AForge.Controls
@@ -98,7 +97,7 @@ namespace AForge.Controls
             {
                 if ( type == HuePickerType.Value )
                 {
-                    min = Math.Max( 0, Math.Min( 359, value ) );
+                    min = System.Math.Max( 0, System.Math.Min( 359, value ) );
                     Invalidate( );
                 }
             }
@@ -115,7 +114,7 @@ namespace AForge.Controls
             {
                 if ( type == HuePickerType.Range )
                 {
-                    min = Math.Max( 0, Math.Min( 359, value ) );
+                    min = System.Math.Max( 0, System.Math.Min( 359, value ) );
                     Invalidate( );
                 }
             }
@@ -132,7 +131,7 @@ namespace AForge.Controls
             {
                 if ( type == HuePickerType.Range )
                 {
-                    max = Math.Max( 0, Math.Min( 359, value ) );
+                    max = System.Math.Max( 0, System.Math.Min( 359, value ) );
                     Invalidate( );
                 }
             }
@@ -218,7 +217,7 @@ namespace AForge.Controls
             HSL hsl = new HSL( );
 
             // get pie rectangle
-            rcPie = new Rectangle( 4, 4, Math.Min( rc.Right, rc.Bottom ) - 8, Math.Min( rc.Right, rc.Bottom ) - 8 );
+            rcPie = new Rectangle( 4, 4, System.Math.Min( rc.Right, rc.Bottom ) - 8, System.Math.Min( rc.Right, rc.Bottom ) - 8 );
 
             // init HSL value
             hsl.Luminance  = 0.5f;
@@ -269,9 +268,9 @@ namespace AForge.Controls
 
             //
             double halfWidth = (double) rcPie.Width / 2;
-            double angleRad = -min * Math.PI / 180;
-            double angleCos = Math.Cos( angleRad );
-            double angleSin = Math.Sin( angleRad );
+            double angleRad = -min * System.Math.PI / 180;
+            double angleCos = System.Math.Cos( angleRad );
+            double angleSin = System.Math.Sin( angleRad );
 
             double x = halfWidth * angleCos;
             double y = halfWidth * angleSin;
@@ -291,9 +290,9 @@ namespace AForge.Controls
             // check picker type
             if ( type == HuePickerType.Range )
             {
-                angleRad = -max * Math.PI / 180;
-                angleCos = Math.Cos( angleRad );
-                angleSin = Math.Sin( angleRad );
+                angleRad = -max * System.Math.PI / 180;
+                angleCos = System.Math.Cos( angleRad );
+                angleSin = System.Math.Sin( angleRad );
 
                 x = halfWidth * angleCos;
                 y = halfWidth * angleSin;
@@ -365,7 +364,7 @@ namespace AForge.Controls
                 if ( trackMode == 1 )
                 {
                     // MIN pointer tracking
-                    min = (int) ( Math.Atan2( -dy, dx ) * 180 / Math.PI );
+                    min = (int) ( System.Math.Atan2( -dy, dx ) * 180 / System.Math.PI );
                     if ( min < 0 )
                     {
                         min = 360 + min;
@@ -374,7 +373,7 @@ namespace AForge.Controls
                 else
                 {
                     // MAX pointer tracking
-                    max = (int) ( Math.Atan2( -dy, dx ) * 180 / Math.PI );
+                    max = (int) ( System.Math.Atan2( -dy, dx ) * 180 / System.Math.PI );
                     if ( max < 0 )
                     {
                         max = 360 + max;

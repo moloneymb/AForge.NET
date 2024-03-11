@@ -15,6 +15,7 @@ namespace AForge.Controls
     using System.Data;
     using System.Windows.Forms;
     using AForge;
+    using Range = AForge.Range;
 
     /// <summary>
     /// Chart control.

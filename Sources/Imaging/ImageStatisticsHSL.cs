@@ -13,7 +13,8 @@ namespace AForge.Imaging
     using System.Drawing.Imaging;
     using AForge;
     using AForge.Math;
-
+    using Range = AForge.Range;
+    
     /// <summary>
     /// Gather statistics about image in HSL color space.
     /// </summary>

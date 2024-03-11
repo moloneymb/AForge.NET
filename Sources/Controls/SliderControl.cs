@@ -201,7 +201,7 @@ namespace AForge.Controls
             get { return manipulatatorPosition; }
             set
             {
-                manipulatatorPosition = Math.Max( -1.0f, Math.Min( 1.0f, value ) );
+                manipulatatorPosition = System.Math.Max( -1.0f, System.Math.Min( 1.0f, value ) );
                 Invalidate( );
                 NotifyClients( );
             }
@@ -230,8 +230,10 @@ namespace AForge.Controls
             InitializeComponent( );
 
             // update control style
+#pragma warning disable CA1416 // Validate platform compatibility
             SetStyle( ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw |
                 ControlStyles.DoubleBuffer | ControlStyles.UserPaint, true );
+#pragma warning restore CA1416 // Validate platform compatibility
 
             IsHorizontal = true;
         }
@@ -370,7 +372,7 @@ namespace AForge.Controls
                     manipulatatorPosition = (float) cy / ( ClientRectangle.Height / 2 - topMargin );
                 }
 
-                manipulatatorPosition = Math.Max( Math.Min( 1, manipulatatorPosition ), -1 );
+                manipulatatorPosition = System.Math.Max( System.Math.Min( 1, manipulatatorPosition ), -1 );
                 Invalidate( );
 
                 // notify user after 10 timer ticks
